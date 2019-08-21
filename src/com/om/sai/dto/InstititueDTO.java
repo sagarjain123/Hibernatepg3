@@ -4,8 +4,11 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 @Entity
 @Table(name="instititue_table")
 public class InstititueDTO  implements Serializable{
@@ -14,6 +17,8 @@ public class InstititueDTO  implements Serializable{
 		System.out.println("institutedto is created");
 	}
 	@Id
+	@GenericGenerator(name="ref",strategy="increment")
+	@GeneratedValue(generator="ref")
 	@Column(name="instititue_id")
 	private int Instituteid;
 	@Column(name="instititue_name")
